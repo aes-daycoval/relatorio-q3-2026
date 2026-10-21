@@ -422,7 +422,7 @@ const CATS=[["bank","Bancos","var(--navy)"],["fin","Outras instituições financ
     <h4 class="h4c">Origem dos ${O.total} profissionais contratados</h4>
     <div class="stack" style="height:26px;border-radius:7px">${P.map(([k,v,c])=>`<div title="${k}: ${v}" style="width:${v/O.total*100}%;background:${c}"></div>`).join("")}</div>
     <div class="cats6">${P.map(([k,v,c])=>`<div><div style="font-size:26px;font-weight:800;color:${c};letter-spacing:-.5px">${v} <span style="font-size:13px;color:var(--mut);font-weight:700">${pct(v,O.total)}</span></div><div style="font-size:12.5px;color:var(--mut)">${k}</div></div>`).join("")}</div>
-    <div class="hint">${P.map(x=>x[1]).join(" + ")} = ${O.total} profissionais.</div>`;
+    `;
   const big=O.banks.filter(x=>x.v>=3), rest=O.banks.filter(x=>x.v<3), restSum=rest.reduce((a,x)=>a+x.v,0), mx=big[0].v;
   document.getElementById("bankcount").textContent=O.cats.bank;
   document.getElementById("bankbars").innerHTML = big.map(x=>`
@@ -511,7 +511,7 @@ function procCard(s){
   return `<div class="card"><h4>Como as vagas foram fechadas</h4>
       <div class="stack">${items.map(k=>`<div title="${k}" style="width:${s.proc[k]/s.total*100}%;background:${PCOL[k]}"></div>`).join("")}</div>
       <div class="lst">${items.map(k=>`<div class="it"><i style="background:${PCOL[k]}"></i><span>${k}</span><span class="c">${s.proc[k]}</span><span class="pc">${pct(s.proc[k],s.total,1)}</span></div>`).join("")}</div>
-      <div class="base">${items.map(k=>s.proc[k]).join(" + ")} = ${s.total} vagas fechadas.</div></div>`;
+      </div>`;
 }
 function closeD(){drawer.classList.remove("on");scrim.classList.remove("on");if(lastFocus)lastFocus.focus();}
 document.getElementById("dx").onclick=closeD; scrim.onclick=closeD;
